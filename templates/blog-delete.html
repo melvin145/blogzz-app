@@ -1,0 +1,46 @@
+
+{%load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create blog</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            height: 90vh;
+            justify-content: center;
+        }
+        form{
+            height: 100%;
+           
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        form h1{
+            font-size: 2rem;
+            color: white;
+            font-family: "Poppins";
+        }
+    </style>
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+<body>
+            <form  action="" method="post">
+                {%csrf_token%}
+                <h1>Delete the post </h1>
+                <div class="delete">
+                    <button  class="delete-btns" type="submit">Delete</button>
+                    <a class="btns" href="{%url 'Home' %}">Cancel</a>
+
+                </div>
+                
+            </form>
+</body>
+
+</html>

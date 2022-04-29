@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <script src="https://kit.fontawesome.com/53aaa96a31.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css '%}">
+      
+</head>
+<style>
+    .blog-text a{
+    font-size:1.5rem;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color:#ffff;
+    font-weight:500;
+    margin: 5px 0px;
+    letter-spacing: 0.7px;
+    
+}
+.blog-text a:hover{
+    font-size: 1.6rem;
+    color: blue;
+    transition: all 100ms ease-in-out;
+}
+</style>
+<body>
+    
+    <section class="main">
+        <!------------------------------------navbar--------------------------------------------------------->
+        <div class="header">
+            <div class="navbar">
+                <h3>Blog</h3>
+                <ul  class ='navlinks' id="navlinks">
+                    <label id="close">
+                     <i class="fa-solid fa-xmark"></i>
+                    </label>
+                    <li><a href="{% url 'Home'%}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="{% url 'logout' %}">logout</a></li>
+                    <li>
+                      <a id="user" href="{% url 'userdetail'%}">{{user.user}}</a>
+                    </li>      
+                </ul>
+                    <label id="icon">
+                      <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+        </div>
+        <div class="page-container">
+            <section id="blog">
+                {%block content%}
+                <div class="blog-heading">
+                    <h1>Read and Create blogs</h1>
+                </div>
+                <div class="createbtn">
+                    <label id="btn" href=""><span><a href="{%url 'blogcreate'%}"><i class="fa-solid fa-circle-plus"></i></a></span></label>
+                </div>
+        
+            <!----------------------------------------------------blog-box-container---------------------------------------------------->
+            <div class="blog-container">
+                
+                <!--box-->
+                {% for posts in page_obj.object_list %}
+                <div class="blog-box">
+                    
+                    <div class="blog-img">
+                        <a href="{% url 'Blog_details' posts.slug %}"><img src="{{posts.Image.url}}" alt=""></a>
+                    </div>
+                    <div class="blog-text">
+                        
+                        <a href="{% url 'Blog_details' posts.slug %}">{{posts.Title}}</a>
+                       <ul class="blog-details">
+                           <li> <span class="blog-user">{{posts.author}}</span></li>             
+                            <li><span class="blog-post-time">{{posts.created_at}}</span></li>
+                       </ul>
+                      
+
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+            </section>
+
+        <!---------------------pagination----------------------------------------------------------------->
+         <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Previous</a>
+              </li>
+            {% endif %}
+            {% for i in page_obj.paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">
+                    {{ i }}
+                    <span class="sr-only">(current)</span>
+                  </span>
+                </li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {%endblock%}
+         </div>
+        
+
+         <!-------------------------------------footer-------------------------------------------------------------->
+         <footer>
+            <div class="footer-container">
+                <div class="footer-content">
+                   <div class="footer-box">
+                    <strong>explore</strong>
+                    <ul>
+                        <li><a href="">home</a></li>
+                        <li><a href="">about</a></li>
+                        <li><a href="">contact</a></li>
+                        <li><a href="">more</a></li>
+                    </ul>
+                   </div>
+                   <div class="footer-box">
+                    <strong>explore</strong>
+                    <ul>
+                        <li><a href="">home</a></li>
+                        <li><a href="">about</a></li>
+                        <li><a href="">contact</a></li>
+                        <li><a href="">more</a></li>
+                    </ul>
+                   </div>
+                   <div class="footer-box">
+                    <strong>explore</strong>
+                    <ul>
+                        <li><a href="">home</a></li>
+                        <li><a href="">about</a></li>
+                        <li><a href="">contact</a></li>
+                        <li><a href="">more</a></li>
+                    </ul>
+                   </div>
+                </div>
+                <!--footer-bottom-->
+                <div class="footer-bottom">
+                    <div class="footer-btm-links">
+                        <a href="#">privacy</a>
+                        <a href="#">terms</a>
+                        <a href="#">site info</a>
+                        
+                    </div>
+                    <div class="copywrite">
+                        <span>made by venom</span>
+                        <span>Ⓒ venom 2022</span>
+                    </div>
+
+                </div>
+            </div>
+         </footer>
+        
+         
+
+         
+
+
+    </section>
+    <script src="{%static 'js/script.js' %}"></script>  
+   
+    
+    
+</body>
+
+</html>

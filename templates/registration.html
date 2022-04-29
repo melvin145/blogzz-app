@@ -1,0 +1,54 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regsiter</title>
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+<body >
+
+    <section class="signup-main">
+        <div class="signup-container">
+            <br>
+            <div class="container">
+                <h1>Register<span>Account</span></h1>
+                <form action="{% url 'register' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-container">
+                        <label class="username" for="username">Username</label>
+                        <p >{{form.username}}</p>
+                    </div>
+    
+                    <div class="input-container" >
+                        <label  class="email" for="email">Email</label>
+                        <p>{{form.email}}</p>
+                        
+                    </div>
+                    <div class="input-container">
+                        <label class="password" for="password">Password</label>
+                        <p >{{form.password1}}</p>
+                    </div>
+                    <div class="input-container">
+                        <label  class="password for="password2">Re-enter Password</label>
+                        <p >{{form.password2}}</p>
+                    </div>
+                    
+                    
+                 <br>
+                 <button type="submit" class="btns">Sign Up</button>
+                 <br>
+                 <br>
+                 <p>Already a member? <a href="{% url 'Login'%}">Log in</a></p>
+                </form>
+                <div></div> 
+            
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

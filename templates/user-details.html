@@ -1,0 +1,60 @@
+{% extends 'home.html'%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<style>
+    .user-name h1{
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+</style>
+<body>
+    {%block content%}
+    
+        <div class="user-detail-container">
+           
+            <div class="detail-container">
+                <div class="user-name">
+                    <h1>{{user.user}}</h1>
+                </div>
+
+               
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Created at</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    {% for posts in userpost%}
+                    <tbody>
+                        <tr>
+                            <td>{{posts.Title}}</td>
+                            <td>{{posts.created_at}}</td>
+                            <td><a class="updateicon"href="{%url 'update' posts.slug %}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                <a class="deleteicon" href="{%url 'delete' posts.id%}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                        </tr>
+                    </tbody>
+                    {%endfor%}
+                </table>
+                
+                
+                
+              
+               
+
+            </div>
+
+
+        </div>
+    {%endblock%}
+    
+</body>
+</html>

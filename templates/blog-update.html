@@ -1,0 +1,46 @@
+{%extends 'home.html'%}
+{%load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create blog</title>
+
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+<body>
+    {%block content%}
+        <div class="create-container">
+            <h1>Update <span>Blog</span></h1>
+            <form  enctype="multipart/form-data" method="post">
+                {%csrf_token%}
+                <div class="input-box">
+                    <label for="Title">Title</label>
+                    {{form.Title}}
+                </div>
+                
+                <div class="input-box">
+                    <label for="image">Image:</label>
+                    {{form.Image}}
+                </div>
+                <div class="input-box">
+                    <label for="content">content</label>
+                     {{form.media}}
+                     {{form.content}}
+                </div>
+                <button  id="update-post" type="submit">Update</button>
+            </form>
+            {% if img_obj %}
+  <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+  <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+  {% endif %}
+
+
+        </div>
+    {%endblock%}
+   
+</body>
+
+</html>
