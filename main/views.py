@@ -64,7 +64,7 @@ def loginviews(requests):
             login(requests,user)
             return redirect(home)
         else:
-            messages.error(requestsc,"Email or Password is incorrect")
+            messages.error(requests,"Email or Password is incorrect")
             return render(requests,"login.html")
 
     return render(requests,'login.html')
