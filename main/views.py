@@ -66,8 +66,8 @@ def loginviews(requests):
         else:
             messages.error(requests,"Email or Password is incorrect")
             return render(requests,"login.html")
-
-    return render(requests,'login.html')
+    else:
+        return render(requests,'login.html')
 
 #logout the user
 def logoutview(request):
