@@ -14,6 +14,7 @@ from pathlib import Path
 from re import M
 from decouple import config
 import django_heroku
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,8 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY ='django-insecure-t$-dgr0g!xeq6e4c(m9+1zp6s4@+zy@-o-toi1&7wz&8k^@23h'
-DEBUG = True
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
 
 

@@ -801,7 +801,7 @@ input[type="button"] {
         padding-right: 30px;
     }
     #username, #password{
-        width: 250px;
+        width: 265px;
         height: 35px;
         color: #797979;
         border: 1px solid rgb(0, 0, 0);
@@ -813,7 +813,7 @@ input[type="button"] {
         box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
     .form-input{
-        width: 250px;
+        width: 265px;
         height: 35px;
         color: #797979;
         border: 1px solid rgb(0, 0, 0);

@@ -9,6 +9,7 @@ from.forms import NewCreationForm,BlogcreationForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 
 
@@ -39,10 +40,17 @@ def registration(request):
         form=NewCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            user=form.cleaned_data["username"]
+            messages.success(request, user+  "is created succesfully")
             return redirect(loginviews)
+        else:
+            messages.error(request,"Email or Password is incorrect")
+            return redirect(registration)
+
     else:
         form=NewCreationForm()
-        return render(request,'registration.html',{'form':form})
+    return render(request,'registration.html',{'form':form})
+    
       
 
 # LOGIN VIEW
@@ -56,6 +64,7 @@ def loginviews(requests):
             login(requests,user)
             return redirect(home)
         else:
+            messages.error(requestsc,"Email or Password is incorrect")
             return render(requests,"login.html")
 
     return render(requests,'login.html')
