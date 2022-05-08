@@ -45,7 +45,6 @@ def registration(request):
             return redirect(loginviews)
         else:
             messages.error(request,"Email or Password is incorrect")
-            return redirect(registration)
 
     else:
         form=NewCreationForm()
