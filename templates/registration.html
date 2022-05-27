@@ -7,6 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regsiter</title>
+    <style>
+        .messages li {
+            font-size: 15px;
+            list-style: none;
+            color: #989494;
+        }
+        .messages li p{
+            font-size: 17px;
+            color:#f75353
+        }
+    </style>
     <link rel="stylesheet" href="{%static 'css/style.css' %}">
 </head>
 <body >
@@ -16,7 +27,7 @@
             <br>
             <div class="container">
                 <h1>Register<span>Account</span></h1>
-                <form action="{% url 'register' %}" method="POST">
+                <form action="{% url 'register' %}" method="POST">  
                     {% csrf_token %}
                     <div class="input-container">
                         <label class="username" for="username">Username</label>
@@ -33,32 +44,32 @@
                         <p >{{form.password1}}</p>
                     </div>
                     <div class="input-container">
-                        <label  class="password for="password2">Re-enter Password</label>
+                        <label  class="password" for="password">Enter Password again</label>
                         <p >{{form.password2}}</p>
                     </div>
-                    
-                    
                  <br>
                  <button type="submit" class="btns">Sign Up</button>
                  <br>
                  <br>
                  <p>Already a member? <a href="{% url 'Login'%}">Log in</a></p>
-                </form>
-                {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                        {{ message }}
-                    </li>
-                    {% endfor %}
+                 <br>
+                 {% if messages %}
+                 <ul class="messages">
+                 {% for message in messages %}
+                 <li class="{{ message.tags }}">
+                     {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}<p>Important</p>{% endif %}
+                     {{ message }}
+                 </li>
+                 {% endfor %}
                 </ul>
                 {% endif %}
+                 
+                </form>
+             
             
 
             </div>
         </div>
-    </section>
-  
+    </section> 
 </body>
 </html>

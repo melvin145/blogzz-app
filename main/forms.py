@@ -15,11 +15,11 @@ from django.contrib.auth.models import User
 class NewCreationForm(UserCreationForm):
     password1 = forms.CharField(
         label="Password",
-        widget=forms.PasswordInput(attrs={'class':'form-input', 'type':'password', 'align':'center', 'placeholder':'password'}),
+        widget=forms.PasswordInput(attrs={'class':'form-input', 'type':'password', 'align':'center', 'placeholder':'eg Heloworld123#$'}),
     )
     password2 = forms.CharField(
         label="Confirm password",
-        widget=forms.PasswordInput(attrs={'class':'form-input', 'type':' password ', 'align':'center', 'placeholder':' enter password again'}),
+        widget=forms.PasswordInput(attrs={'class':'form-input', 'type':' password2', 'align':'center', 'placeholder':'password'}),
     )
     class Meta:
         model=User

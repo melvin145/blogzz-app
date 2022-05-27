@@ -15,6 +15,8 @@ from re import M
 from decouple import config
 import django_heroku
 from decouple import config
+import cloudinary
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = False
+DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
@@ -47,7 +49,9 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'froala_editor',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +139,7 @@ STATICFILES_DIRS =[
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 
 MEDIA_URL="/media/"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATIC_ROOT=os.path.join(BASE_DIR,'static/staticfiles')
 
@@ -147,3 +152,7 @@ FROALA_EDITOR_THEME="dark"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
 django_heroku.settings(locals())
+
+CLOUDINARY_STORAGE = {'CLOUD_NAME': 'ddstxl49g',
+                    'API_KEY': '679362424367292',
+                    'API_SECRET': 'iVsd3bT3hkA97ZIF9Df5RYTt0iM',}

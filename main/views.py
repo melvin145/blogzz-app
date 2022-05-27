@@ -27,7 +27,7 @@ def home(request):
 
 # VIEW FOR SHOWING THE SELCTED POST
 @login_required(login_url='/login')
-def Blog_Details(request,slug):
+def Post_details(request,slug):
     detail_post=Post.objects.get(slug=slug)
     user=Userdetail.objects.get(user=request.user)
     return render(request,'details.html',{"details":detail_post,"user":user})
@@ -42,9 +42,10 @@ def registration(request):
             form.save()
             user=form.cleaned_data["username"]
             messages.success(request, user+  "is created succesfully")
-            return redirect(loginviews)
+            return redirect(loginview)
         else:
             messages.error(request,"Email or Password is incorrect")
+            messages.error(request,"Password must contain atleast 8 character and cant be similar to username")
 
     else:
         form=NewCreationForm()
@@ -53,7 +54,7 @@ def registration(request):
       
 
 # LOGIN VIEW
-def loginviews(requests):
+def loginview(requests):
     if requests.method=='POST':
         username=requests.POST.get('username')
         password=requests.POST.get('password')
@@ -63,7 +64,7 @@ def loginviews(requests):
             login(requests,user)
             return redirect(home)
         else:
-            messages.error(requests,"Email or Password is incorrect")
+            messages.error(requests,"Enter correct Email and password")
             return render(requests,"login.html")
     else:
         return render(requests,'login.html')
@@ -71,11 +72,11 @@ def loginviews(requests):
 #logout the user
 def logoutview(request):
     logout(request)
-    return redirect(loginviews)
+    return redirect(loginview)
 
 #create new Post
 @login_required(login_url='/login')
-def Blogcreate(request):
+def Create_post(request):
     if request.method=='POST':
         form=BlogcreationForm(request.POST,request.FILES)
         if form.is_valid():
@@ -89,7 +90,7 @@ def Blogcreate(request):
         return render(request,"blog-create.html",{"forms":form})
 
 @login_required(login_url='/login')
-def Blogupdate(request,slug):
+def Update_post(request,slug):
     object=Post.objects.get(slug=slug)
     if object.author!=request.user:
         return redirect(home)
@@ -104,7 +105,7 @@ def Blogupdate(request,slug):
             return render(request,"blog-update.html",{"form":form})
 
 @login_required(login_url='/login') 
-def Blogdelete(request,pk):
+def Delete_post(request,pk):
     object=Post.objects.get(id=pk)
     if object.author!=request.user:
         return redirect(home)
@@ -116,7 +117,7 @@ def Blogdelete(request,pk):
             return render(request,"blog-delete.html")    
     
 @login_required(login_url='/login')
-def userdetail(request):
+def user_detail(request):
     user=Userdetail.objects.get(user=request.user)
     userpost=Post.objects.filter(author=request.user)
     return render(request,"user-details.html",{"user":user,"userpost":userpost})
