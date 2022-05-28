@@ -73,11 +73,11 @@
                 <div class="blog-box">
                     
                     <div class="blog-img">
-                        <a href="{% url 'Blog_details' posts.slug %}"><img src="{{posts.Image.url}}" alt=""></a>
+                        <a href="{% url 'Blog_details' posts.id %}"><img src="{{posts.Image.url}}" alt=""></a>
                     </div>
                     <div class="blog-text">
                         
-                        <a href="{% url 'Blog_details' posts.slug %}">{{posts.Title}}</a>
+                        <a href="{% url 'Blog_details' posts.id %}">{{posts.Title}}</a>
                        <ul class="blog-details">
                            <li> <span class="blog-user">{{posts.author}}</span></li>             
                             <li><span class="blog-post-time">{{posts.created_at}}</span></li>

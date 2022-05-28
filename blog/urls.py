@@ -4,12 +4,13 @@ from django.urls import path,include
 import main.urls
 from froala_editor import views
 from .import settings
-
+import api.urls
 from django.contrib.staticfiles.urls import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("main.urls")),
+    path("api/",include("api.urls")),
     #path('ckeditor/', include('ckeditor_uploader.urls')),
     path('froala_editor/',include('froala_editor.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

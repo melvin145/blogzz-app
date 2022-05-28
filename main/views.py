@@ -15,20 +15,22 @@ from django.contrib import messages
 
 
 #  SHOWING ALL POSTS 
-@login_required(login_url="/login")
 def home(request):
     post=Post.objects.all()
     paginator=Paginator(post,4)
     page_number=request.GET.get("page")
     page_obj=paginator.get_page(page_number)
-    user=Userdetail.objects.get(user=request.user)
+    try:
+        user=Userdetail.objects.get(user=request.user)
+    except:
+        user=None
     return render(request,"home.html",{"post":post,"user":user,"page_obj":page_obj})
 
 
 # VIEW FOR SHOWING THE SELCTED POST
 @login_required(login_url='/login')
-def Post_details(request,slug):
-    detail_post=Post.objects.get(slug=slug)
+def Post_details(request,pk):
+    detail_post=Post.objects.get(id=pk)
     user=Userdetail.objects.get(user=request.user)
     return render(request,'details.html',{"details":detail_post,"user":user})
 

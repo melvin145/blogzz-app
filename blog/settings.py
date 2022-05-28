@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'cloudinary_storage',
     'cloudinary',
+    'rest_framework',
+    'corsheaders',
+    "api",
 ]
 
 MIDDLEWARE = [
