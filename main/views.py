@@ -28,10 +28,13 @@ def home(request):
 
 
 # VIEW FOR SHOWING THE SELCTED POST
-@login_required(login_url='/login')
-def Post_details(request,pk):
-    detail_post=Post.objects.get(id=pk)
-    user=Userdetail.objects.get(user=request.user)
+#@login_required(login_url='/login')
+def Post_details(request,slug):
+    detail_post=Post.objects.get(slug=slug)
+    try:
+        user=Userdetail.objects.get(user=request.user)
+    except:
+        user=None
     return render(request,'details.html',{"details":detail_post,"user":user})
 
 
@@ -92,8 +95,8 @@ def Create_post(request):
         return render(request,"blog-create.html",{"forms":form})
 
 @login_required(login_url='/login')
-def Update_post(request,slug):
-    object=Post.objects.get(slug=slug)
+def Update_post(request,pk):
+    object=Post.objects.get(id=pk)
     if object.author!=request.user:
         return redirect(home)
     else:
@@ -121,7 +124,7 @@ def Delete_post(request,pk):
 @login_required(login_url='/login')
 def user_detail(request):
     user=Userdetail.objects.get(user=request.user)
-    userpost=Post.objects.filter(author=request.user)
+    userpost=Post.objects.filter(author=user.user)
     return render(request,"user-details.html",{"user":user,"userpost":userpost})
 
 
