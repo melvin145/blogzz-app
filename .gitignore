@@ -1,8 +1,6 @@
-media/uploads
-.jpg
-.png
-.gif
+media
+
 # Environments 
-.env 
+.env
 .venv 
 env/ 
