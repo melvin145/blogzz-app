@@ -17,7 +17,7 @@ from django.contrib import messages
 #  SHOWING ALL POSTS 
 def home(request):
     post=Post.objects.all()
-    paginator=Paginator(post,4)
+    paginator=Paginator(post,8)
     page_number=request.GET.get("page")
     page_obj=paginator.get_page(page_number)
     try:

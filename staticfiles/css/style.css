@@ -364,7 +364,7 @@ footer{
 }
 
 .container{
-    border: 2px solid #949494;
+    border: 2px solid #7b7a7a;
     padding: 30px 35px 30px 25px;
     color: white;
     border-radius: 5px;
@@ -373,7 +373,7 @@ footer{
     flex-direction: column;
     align-items: center;
     font-family: 'Poppins';
-    background-color: #14171c;
+    background-color: #234f9c;
     box-shadow: rgba(25, 3, 3, 0.25) 0px 6px 12px -2px, rgba(21, 2, 2, 0.3) 0px 3px 7px -3px;
 
 }
