@@ -1,4 +1,7 @@
 media/uploads
+.jpg
+.png
+.gif
 # Environments 
 .env 
 .venv 
