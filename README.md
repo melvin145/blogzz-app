@@ -7,7 +7,7 @@
 ## Maintainers
 
 1. Melvin mathai https://github.com/melvin145
-2. 
+
 ## How it Works ?
 
   User can create their own blog when they are logined.By clicking the create button an form for creating the post will appears.
@@ -27,10 +27,53 @@ Pillow==9.1.0
 whitenoise==6.0.0
 
 ## How to configure
+
+1.)Clone the repository
+  git clone
+
+2.)Create your own virtual environment
+  pip install virtualenvwrapper-win
+  
+  mkvirtualenv <name>
+  
+  workon [<name>]
+  
+3.)Install your requirements
+  
+  pip install -r requirements.txt
+  
+4.)Generate a new SECRET_KEY
+  
+  Djecrety to generate secure secret_key https://djecrety.ir/
+  
+  in settings.py
+  
+  SECRET_KEY=your secret key
+  
+5.)configure cloudinary for storing images
+  
+  In settings.py add
+  
+  CLOUDINARY_STORAGE = {
+   'CLOUD_NAME':your cloud name,
+   'API_KEY':api key,
+    'API_SECRET': api secret,
+    }
   
 ## How to Run
 
-Instructions for running
+  1.) Make your migrations
+  
+    python manage.py makemigrations
+  
+    python manage.py migrate
+  
+  2.)python manage.py createsuperuser
+    
+  3.)python manage.py runserver
+  
 
 ## Improvements Required
-Include new features, update, bug fixes for the project
+  1)Add  rest api for creating,deleting and updating the post
+  2)Add restapi for user registration
+  3)connect postgresql or mysql 
