@@ -18,7 +18,9 @@
   user need  to enter the title,content and image for creating their blog post.User can delete and update their post whenever needed
   Userprofile contains the list posts created by the user
   
-  CREATE POST
+## WEBSITE LINK
+
+    https://blogzzz-app.herokuapp.com/
   
 
 ## Technologies and Libraries used
