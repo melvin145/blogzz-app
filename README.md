@@ -1,3 +1,7 @@
+
+<img width="1240" alt="Screenshot 2022-05-30 143639" src="https://user-images.githubusercontent.com/83630577/170958461-486f5d23-a25e-4715-abdf-119b9c899ba1.png">
+
+
 # Blogzz-app
 
   blogzz-app is an blog-application developed using python web framework Django 4.0.2
@@ -13,6 +17,9 @@
   User can create their own blog when they are logined.By clicking the create button an form for creating the post will appears.
   user need  to enter the title,content and image for creating their blog post.User can delete and update their post whenever needed
   Userprofile contains the list posts created by the user
+  
+  CREATE POST
+  
 
 ## Technologies and Libraries used
 
