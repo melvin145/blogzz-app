@@ -4,9 +4,8 @@
 
 # Blogzz-app
 
-  blogzz-app is an blog-application developed using python web framework Django 4.0.2
-  
-  where users can create,update and delete their blog also read blogs writen by others users
+ blogzz-app is a blog-application developed using the Python web framework Django 4.0.2.
+ where users can create, update, and delete their blogs. They can also read blogs written by other users.
   
 ## Maintainer
 
@@ -14,10 +13,10 @@
 
 ## How it Works ?
 
-  User can create their own blog when they are logined.By clicking the create button an form for creating the post will appears.
-  user need  to enter the title,content and image for creating their blog post.User can delete and update their post whenever needed
-  Userprofile contains the list posts created by the user
-  
+ Users can create their own blogs when they are logged in. By clicking the "create" button, a form for creating 
+ the post will appear. A user needs to enter the     title, content, and image to create their blog post. Users 
+ can delete and update their posts whenever needed. The Userprofile contains the list of posts created by the user.
+ 
 ## WEBSITE LINK
 
    https://blogzzz-app.herokuapp.com/
