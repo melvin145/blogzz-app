@@ -1,7 +1,10 @@
-# Project Name
-Long Description about the project.
+# Blogzz-app
+
+  blogzz-app is an blog-application developed using python web framework Django 4.0.2
+  where users can create,update and delete their blog and read blogs writen by others users
+  
 ## Maintainers
-1. Name [Embed personal github URL]
+1. Melvin mathai https://github.com/melvin145
 2. Name [Embed personal github URL]
 ## Link to project walkthrough
 [link to video]
