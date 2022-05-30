@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY ='django-insecure-t$-dgr0g!xeq6e4c(m9+1zp6s4@+zy@-o-toi1&7wz&8k^@23h'
+SECRET_KEY =config('SECRET_KEY')
 DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -157,7 +157,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
 
 CLOUDINARY_STORAGE = {
-   'CLOUD_NAME':'ddstxl49g',
-   'API_KEY':'679362424367292',
-    'API_SECRET':'iVsd3bT3hkA97ZIF9Df5RYTt0iM',
+   'CLOUD_NAME':config("CLOUD_NAME"),
+   'API_KEY':config("API_KEY"),
+    'API_SECRET': config("API_SECRET"),
 }
