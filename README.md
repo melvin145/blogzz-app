@@ -4,7 +4,7 @@
   
   where users can create,update and delete their blog also read blogs writen by others users
   
-## Maintainers
+## Maintainer
 
 1. Melvin mathai https://github.com/melvin145
 
@@ -29,25 +29,22 @@ whitenoise==6.0.0
 ## How to configure
 
 1.)Clone the repository
-  git clone
+   git clone
 
 2.)Create your own virtual environment
-  pip install virtualenvwrapper-win
+   pip install virtualenvwrapper-win
   
-  mkvirtualenv <name>
+   mkvirtualenv Name
   
-  workon [<name>]
+   workon Name
   
 3.)Install your requirements
   
-  pip install -r requirements.txt
+   pip install -r requirements.txt
   
 4.)Generate a new SECRET_KEY
-  
   Djecrety to generate secure secret_key https://djecrety.ir/
-  
   in settings.py
-  
   SECRET_KEY=your secret key
   
 5.)configure cloudinary for storing images
