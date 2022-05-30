@@ -63,15 +63,14 @@
   
 4.)Generate a new SECRET_KEY
 
-  Djecrety to generate secure secret_key https://djecrety.ir/
+    Djecrety to generate secure secret_key https://djecrety.ir/
   
-  in settings.py
-  
-  SECRET_KEY=your secret key
+     in settings.py add
+      SECRET_KEY=your secret key
   
 5.)configure cloudinary for storing images
   
-  In settings.py add
+   In settings.py add
   
     CLOUDINARY_STORAGE = {
      'CLOUD_NAME':your cloud name,
@@ -87,9 +86,13 @@
   
     python manage.py migrate
   
-  2.)python manage.py createsuperuser
+  2.)Create an superuser
+  
+     python manage.py createsuperuser
     
-  3.)python manage.py runserver
+  3.)Run django server
+  
+      python manage.py runserver
   
 
 ## Improvements Required
