@@ -26,13 +26,21 @@
 ## Technologies and Libraries used
 
   cloudinary==1.29.0(for storing useruploaded images )
+  
   dj3-cloudinary-storage==0.0.6
+  
   Django==4.0.2
+  
   django-cors-headers==3.12.0
+  
   django-froala-editor==4.0.10(froala editor to editing content of the blog)
+  
   django-heroku==0.3.1
+  
   djangorestframework==3.13.1
+  
   Pillow==9.1.0
+  
   whitenoise==6.0.0
 
 ## How to configure
